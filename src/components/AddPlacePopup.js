@@ -30,6 +30,7 @@ export default function AddPlacePopup(props) {
       buttonText={props.loading ? 'Coхранение...' : 'Сохранить'}
       isOpen={props.isOpen}
       onClose={props.onClose}
+      onClick={props.onClose}
       onSubmit={handleSubmit}>
       <input
         id="popup__input-title"

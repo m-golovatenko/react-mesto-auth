@@ -167,6 +167,7 @@ function App() {
             onClose={closeAllPopups}
             onUpdateUser={handleUpdateUser}
             loading={isLoading}
+            onClick={closeAllPopups}
           />
 
           <AddPlacePopup
@@ -190,7 +191,7 @@ function App() {
             loading={isLoading}
           />
 
-          <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+          <ImagePopup card={selectedCard} onClose={closeAllPopups} onClick={closeAllPopups} />
 
           <Footer />
         </div>

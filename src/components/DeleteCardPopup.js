@@ -14,6 +14,7 @@ export default function DeleteCardPopup(props) {
       buttonText={props.loading ? 'Удаление...' : 'Да'}
       isOpen={props.isOpen}
       onClose={props.onClose}
+      onClick={props.onClose}
       onSubmit={handleSubmit}
     />
   );

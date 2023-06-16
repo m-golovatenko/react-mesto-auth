@@ -2,8 +2,10 @@ import React from 'react';
 
 export default function ImagePopup(props) {
   return (
-    <figure className={`popup popup_image ${props.card.isOpen ? 'popup_opened' : ''}`}>
-      <div className="popup__image-container">
+    <figure
+      className={`popup popup_image ${props.card.isOpen ? 'popup_opened' : ''}`}
+      onClick={props.onClose}>
+      <div className="popup__image-container" onClick={evt => evt.stopPropagation()}>
         <button
           className="popup__close-button"
           type="button"
