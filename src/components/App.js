@@ -12,6 +12,7 @@ import AddPlacePopup from './AddPlacePopup';
 import DeleteCardPopup from './DeleteCardPopup';
 import Register from './Register';
 import Login from './Login';
+import ProtectedRoute from './ProtectedRoute';
 
 function App() {
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
@@ -22,6 +23,7 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
   const [isLoading, setLoading] = React.useState(false);
+  const [isLoggedIn, setLoggedIn] = React.useState(false);
 
   React.useEffect(() => {
     Promise.all([api.getUserInfo(), api.getInitialCards()])
@@ -161,7 +163,8 @@ function App() {
               path="/"
               element={
                 (
-                  <Main
+                  <ProtectedRoute
+                    element={Main}
                     onEditAvatar={handleEditAvatarClick}
                     onEditProfile={handleEditProfileClick}
                     onAddCard={handleAddCardClick}
@@ -169,6 +172,7 @@ function App() {
                     cards={cards}
                     onCardLike={handleCardLike}
                     onCardDelete={handleDeleteCardClick}
+                    isLoggedIn={isLoggedIn}
                   />
                 ) && <Footer />
               }
