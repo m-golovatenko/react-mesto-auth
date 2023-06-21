@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import Main from './Main';
 import ImagePopup from './ImagePopup';
@@ -152,16 +153,27 @@ function App() {
         <div className="page">
           <Header />
 
-          <Main
-            onEditAvatar={handleEditAvatarClick}
-            onEditProfile={handleEditProfileClick}
-            onAddCard={handleAddCardClick}
-            onCardClick={handleCardClick}
-            cards={cards}
-            onCardLike={handleCardLike}
-            onCardDelete={handleDeleteCardClick}
-          />
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={
+                <Main
+                  onEditAvatar={handleEditAvatarClick}
+                  onEditProfile={handleEditProfileClick}
+                  onAddCard={handleAddCardClick}
+                  onCardClick={handleCardClick}
+                  cards={cards}
+                  onCardLike={handleCardLike}
+                  onCardDelete={handleDeleteCardClick}
+                />
+              }
+            />
 
+            <Route path="/sign-in"></Route>
+            <Route path="/sign-up"></Route>
+          </Routes>
+          <Footer />
           <EditProfilePopup
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}
@@ -191,9 +203,7 @@ function App() {
             loading={isLoading}
           />
 
-          <ImagePopup card={selectedCard} onClose={closeAllPopups} onClick={closeAllPopups} />
-
-          <Footer />
+          <ImagePopup card={selectedCard} onClose={closeAllPopups} />
         </div>
       </div>
     </CurrentUserContext.Provider>
