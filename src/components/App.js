@@ -10,6 +10,8 @@ import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
 import DeleteCardPopup from './DeleteCardPopup';
+import Register from './Register';
+import Login from './Login';
 
 function App() {
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
@@ -158,22 +160,24 @@ function App() {
               exact
               path="/"
               element={
-                <Main
-                  onEditAvatar={handleEditAvatarClick}
-                  onEditProfile={handleEditProfileClick}
-                  onAddCard={handleAddCardClick}
-                  onCardClick={handleCardClick}
-                  cards={cards}
-                  onCardLike={handleCardLike}
-                  onCardDelete={handleDeleteCardClick}
-                />
+                (
+                  <Main
+                    onEditAvatar={handleEditAvatarClick}
+                    onEditProfile={handleEditProfileClick}
+                    onAddCard={handleAddCardClick}
+                    onCardClick={handleCardClick}
+                    cards={cards}
+                    onCardLike={handleCardLike}
+                    onCardDelete={handleDeleteCardClick}
+                  />
+                ) && <Footer />
               }
             />
 
-            <Route path="/sign-in"></Route>
-            <Route path="/sign-up"></Route>
+            <Route path="/sign-in" element={<Login />}></Route>
+            <Route path="/sign-up" element={<Register />}></Route>
           </Routes>
-          <Footer />
+
           <EditProfilePopup
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}

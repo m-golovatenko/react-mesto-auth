@@ -1,0 +1,24 @@
+.login__save-button {
+  background-color: #fff;
+  border-radius: 2px;
+  width: 100%;
+  min-height: 50px;
+  color: #000;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  border: none;
+  text-align: center;
+}
+
+.popup__save-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media (max-width: 540px) {
+  .popup__save-button {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
