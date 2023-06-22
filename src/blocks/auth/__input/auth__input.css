@@ -1,4 +1,4 @@
-.login__input {
+.auth__input {
   margin: 0;
   width: 100%;
   min-height: 27px;
@@ -11,16 +11,16 @@
   padding: 0;
 }
 
-.login__input:focus {
+.auth__input:focus {
   border: 1px solid #007aff;
 }
 
-.login__input:active {
+.auth__input:active {
   border: 1px solid #007aff;
 }
 
 @media (max-width: 540px) {
-  .login__input {
+  .auth__input {
     font-size: 14px;
     line-height: 17px;
   }

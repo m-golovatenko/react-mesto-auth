@@ -1,4 +1,4 @@
-.login__save-button {
+.auth__save-button {
   background-color: #fff;
   border-radius: 2px;
   width: 100%;
@@ -11,13 +11,13 @@
   text-align: center;
 }
 
-.login__save-button:hover {
+.auth__save-button:hover {
   cursor: pointer;
   opacity: 0.85;
 }
 
 @media (max-width: 540px) {
-  .login__save-button {
+  .auth__save-button {
     font-size: 16px;
     line-height: 19px;
   }

@@ -1,4 +1,4 @@
-.login__input-error {
+.auth__input-error {
   margin-top: 5px;
   display: block;
   font-weight: 400;
@@ -9,12 +9,12 @@
   height: 25px;
 }
 
-.login__input-error:last-of-type {
+.auth__input-error:last-of-type {
   margin-bottom: 186px;
 }
 
 @media (max-width: 540px) {
-  .login__input-error:last-of-type {
+  .auth__input-error:last-of-type {
     margin-bottom: 143px;
   }
 }
