@@ -9,14 +9,7 @@
   line-height: 17px;
   background-color: transparent;
   padding: 0;
-}
-
-.auth__input:focus {
-  border: 1px solid #007aff;
-}
-
-.auth__input:active {
-  border: 1px solid #007aff;
+  color: #fff;
 }
 
 @media (max-width: 540px) {
