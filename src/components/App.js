@@ -25,7 +25,7 @@ function App() {
   const [cards, setCards] = React.useState([]);
   const [isLoading, setLoading] = React.useState(false);
   const [isLoggedIn, setLoggedIn] = React.useState(false);
-  const [headerInfo, setHeaderInfo] = React.useState('');
+  const [headerInfo, setHeaderInfo] = React.useState(null);
 
   const navigate = useNavigate();
 
@@ -38,11 +38,12 @@ function App() {
           return;
         }
         setLoggedIn(true);
-        setHeaderInfo(data.email);
+        setHeaderInfo(data.data.email);
         navigate('/');
       })
       .catch(e => {
         setLoggedIn(false);
+        setHeaderInfo(null);
       });
   }
 
@@ -53,7 +54,7 @@ function App() {
 
   function signOut() {
     localStorage.removeItem('jwt');
-    setHeaderInfo('');
+    setHeaderInfo(null);
     setLoggedIn(false);
     navigate('/signin');
   }

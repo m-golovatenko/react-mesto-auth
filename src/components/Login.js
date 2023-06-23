@@ -27,7 +27,7 @@ function Login({ handleLogin, setHeaderInfo }) {
         navigate('/');
       })
 
-      .catch(err => console.error(`Ошибка при входе. Код ошибки: ${e}`));
+      .catch(err => console.error(`Ошибка при входе. Код ошибки: ${err}`));
   }
 
   return (
