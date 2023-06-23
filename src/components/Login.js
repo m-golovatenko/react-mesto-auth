@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as auth from '../utils/auth';
 
-function Login({ handleLogin }) {
+function Login({ handleLogin, setHeaderInfo }) {
   const [formValue, setFormValue] = React.useState({ password: '', email: '' });
   const navigate = useNavigate();
 
@@ -22,6 +22,7 @@ function Login({ handleLogin }) {
       .login(password, email)
       .then(data => {
         localStorage.setItem('jwt', data.token);
+        setHeaderInfo(data.email);
         handleLogin();
         navigate('/');
       })

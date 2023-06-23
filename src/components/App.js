@@ -25,6 +25,7 @@ function App() {
   const [cards, setCards] = React.useState([]);
   const [isLoading, setLoading] = React.useState(false);
   const [isLoggedIn, setLoggedIn] = React.useState(false);
+  const [headerInfo, setHeaderInfo] = React.useState('');
 
   const navigate = useNavigate();
 
@@ -37,6 +38,7 @@ function App() {
           return;
         }
         setLoggedIn(true);
+        setHeaderInfo(data.email);
         navigate('/');
       })
       .catch(e => {
@@ -48,6 +50,13 @@ function App() {
     checkToken();
     // eslint-disable-next-line
   }, []);
+
+  function signOut() {
+    localStorage.removeItem('jwt');
+    setHeaderInfo('');
+    setLoggedIn(false);
+    navigate('/signin');
+  }
 
   React.useEffect(() => {
     Promise.all([api.getUserInfo(), api.getInitialCards()])
@@ -179,7 +188,7 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="root">
         <div className="page">
-          <Header />
+          <Header headerInfo={headerInfo} signOut={signOut} />
 
           <Routes>
             <Route
@@ -200,7 +209,12 @@ function App() {
               }
             />
 
-            <Route path="/sign-in" element={<Login handleLogin={() => setLoggedIn(true)} />} />
+            <Route
+              path="/sign-in"
+              element={
+                <Login handleLogin={() => setLoggedIn(true)} setHeaderInfo={setHeaderInfo} />
+              }
+            />
             <Route path="/sign-up" element={<Register />} />
           </Routes>
 
