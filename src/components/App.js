@@ -218,6 +218,8 @@ function App() {
             <Route path="/sign-up" element={<Register />} />
           </Routes>
 
+          {isLoggedIn && <Footer />}
+
           <EditProfilePopup
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}
