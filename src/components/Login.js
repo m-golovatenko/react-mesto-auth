@@ -22,7 +22,7 @@ function Login({ handleLogin, setHeaderInfo }) {
       .login(password, email)
       .then(data => {
         localStorage.setItem('jwt', data.token);
-        setHeaderInfo(data.email);
+        setHeaderInfo(email);
         handleLogin();
         navigate('/');
       })
