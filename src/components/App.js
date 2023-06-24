@@ -52,6 +52,7 @@ function App() {
 
   React.useEffect(() => {
     checkToken();
+    // eslint-disable-next-line
   }, []);
 
   function signOut() {
