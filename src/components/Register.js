@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as auth from '../utils/auth';
 
-function Register() {
+function Register({ setSuccessed, setInfoTooltipPopupOpen }) {
   const [formValue, setFormValue] = React.useState({ password: '', email: '' });
   const navigate = useNavigate();
 
@@ -20,13 +20,16 @@ function Register() {
     const { password, email } = formValue;
     auth
       .register(password, email)
-      .then(data => {
-        console.log(data);
-      })
       .then(() => {
+        setSuccessed(true);
+        setInfoTooltipPopupOpen(true);
         navigate('/sign-in');
       })
-      .catch(e => console.error(`Ошибка при регистрации пользователя. Код ошибки: ${e}`));
+      .catch(e => {
+        setSuccessed(false);
+        setInfoTooltipPopupOpen(true);
+        console.error(`Ошибка при регистрации пользователя: код ошибки (${e})`);
+      });
   }
 
   return (

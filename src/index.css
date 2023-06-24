@@ -60,3 +60,6 @@
 @import url(./blocks/auth/__save-button/auth__save-button.css);
 @import url(./blocks/auth/__text/auth__text.css);
 @import url(./blocks/auth/__link/auth__link.css);
+/*REGISTRATION POPUP*/
+@import url(./blocks/popup/__register-text/popup__register-text.css);
+@import url(./blocks/popup/__register-image/popup__register-image.css);

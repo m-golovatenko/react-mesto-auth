@@ -16,7 +16,7 @@ export const register = (password, email) => {
       password,
       email
     })
-  }).then(res => checkStatus(res));
+  }).then(checkStatus);
 };
 
 export const login = (password, email) => {
@@ -27,12 +27,12 @@ export const login = (password, email) => {
       password,
       email
     })
-  }).then(res => checkStatus(res));
+  }).then(checkStatus);
 };
 
 export const checkToken = token => {
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
-  }).then(res => checkStatus(res));
+  }).then(checkStatus);
 };

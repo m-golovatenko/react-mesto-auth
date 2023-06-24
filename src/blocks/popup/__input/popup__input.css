@@ -7,10 +7,12 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+  background: transparent;
 }
 
 .popup__input:focus {
-  border: 1px solid #007aff;
+  outline: 0;
+  outline-offset: 0;
 }
 
 .popup__input:active {
